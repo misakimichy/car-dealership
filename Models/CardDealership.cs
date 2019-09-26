@@ -1,9 +1,42 @@
 using System;
-using System.Collections.Generic;
 
-class Car
+namespace Dealership.Models
 {
-  public string MakeModel;
-  public int Price;
-  public int Miles;
+  class Car
+  {
+    private string _makeModel;
+    private int _price;
+    private int _miles;
+    
+    public Car(string makeModel, int price, int miles)
+    {
+      _makeModel = makeModel;
+      _price = price;
+      _miles = miles;
+    }
+
+    public string GetMakeModel()
+    {
+      return _makeModel;
+    }
+
+    public int GetPrice()
+    {
+      return _price;
+    }
+
+    public int GetMiles()
+    {
+      return _miles;
+    }
+
+    public void SetPrice(int newPrice)
+    {
+      _price = newPrice;
+    }
+    public bool WorthBuying(int maxPrice)
+    {
+      return (_price < maxPrice);
+    }
+  }
 }
