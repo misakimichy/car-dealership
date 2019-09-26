@@ -8,10 +8,10 @@ namespace Dealership
   {
     public static void Main()
     {
-      Car volkswagen = new Car("1974 Volkswagen Thing", 1100, 368792);
-      Car yugo = new Car("1980 Yugo Koral", 700, 56000);
-      Car ford = new Car("1988 Ford Country Squire", 1400, 239001);
-      Car amc = new Car("1976 AMC Pacer", 400, 198000);
+      Car volkswagen = new Car("1974 Volkswagen Thing", 1100, 368792, "I am the Volks Wagen!");
+      Car yugo = new Car("1980 Yugo Koral", 700, 56000, "I am yugo.");
+      Car ford = new Car("1988 Ford Country Squire", 1400, 239001, "Here Ford comes!");
+      Car amc = new Car("1976 AMC Pacer", 400, 198000, "Hey ya! I'm amc!");
 
       List<Car> Cars = new List<Car>() { volkswagen, yugo, ford, amc };
       yugo.SetPrice(300);
@@ -30,12 +30,19 @@ namespace Dealership
         }
       }
 
-      foreach(Car automobile in CarMatchingSearch)
+      if (CarMatchingSearch.Count == 0)
       {
-        Console.WriteLine("----------------------");
-        Console.WriteLine(automobile.GetMakeModel());
-        Console.WriteLine(automobile.GetMiles() + " miles");
-        Console.WriteLine("$" + automobile.GetPrice());
+        Console.WriteLine("No cars match your criteria.");
+      }
+      else{
+        foreach(Car automobile in CarMatchingSearch)
+        {
+          Console.WriteLine("----------------------");
+          Console.WriteLine(automobile.GetMakeModel());
+          Console.WriteLine(automobile.GetMiles() + " miles");
+          Console.WriteLine("$" + automobile.GetPrice());
+          Console.WriteLine("Message from this car: " + automobile.GetMessage());
+        }
       }
     }
   }
